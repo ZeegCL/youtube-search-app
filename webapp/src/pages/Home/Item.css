@@ -1,0 +1,34 @@
+.item {
+    width: 50vw;
+    display: flex;
+    flex-flow: row nowrap;
+    margin-bottom: 20px;
+}
+
+.item-image {
+    display: inline-block;
+}
+
+.item-data {
+    display: inline-flex;
+    flex-flow: column nowrap;
+    text-align: left;
+    padding: 1em;
+}
+
+.item-data h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.item-data h4 a {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.item-data p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+}

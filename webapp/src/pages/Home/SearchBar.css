@@ -1,0 +1,25 @@
+label {
+    display: block;
+    margin-bottom: 20px;
+}
+
+#searchbar-container {
+    display: block;
+    margin-bottom: 40px;
+}
+
+#searchbar {
+    display: inline-block;
+    width: 50vw;
+    height: 2rem;
+}
+
+button {
+    display: inline-block;
+    height: 2rem;
+}
+
+.small {
+    font-size: small;
+    color: rgba(255, 255, 255, 0.4);
+}
