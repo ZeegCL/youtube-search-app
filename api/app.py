@@ -35,12 +35,16 @@ def search_by_terms(terms):
         getenv("YOUTUBE_API_KEY"),
         terms
     ))
-    if 'items' in req.json():
-        result = list(map(strip_down, req.json()["items"]))
-    else:
-        result = []
 
-    return result
+    result = req.json()
+
+    if 'error' in result:
+        raise Exception(result['error']['message'])
+
+    if 'items' in result:
+        return list(map(strip_down, result["items"]))
+
+    return []
 
 # Routes
 
