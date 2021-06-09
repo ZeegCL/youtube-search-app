@@ -2,9 +2,11 @@ from flask import Flask, json, request, jsonify
 from flask_cors import CORS
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 from os import getenv
 import requests
+
+load_dotenv(find_dotenv())
 
 app = Flask(__name__)
 app.secret_key = getenv("SECRET_KEY")
@@ -27,7 +29,7 @@ def strip_down(item):
             "width": item["snippet"]["thumbnails"]["medium"]["width"],
             "height": item["snippet"]["thumbnails"]["medium"]["height"],
         }
-     }
+    }
 
 def search_by_terms(terms):
     req = requests.get("https://youtube.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults={}&key={}&q={}".format(
@@ -72,5 +74,4 @@ def getSearch():
 # Start the app
 
 if __name__ == "__main__":
-    load_dotenv()
     app.run(debug=getenv('DEBUG'), port=getenv('PORT'))
