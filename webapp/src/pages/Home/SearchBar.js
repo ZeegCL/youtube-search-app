@@ -10,7 +10,11 @@ const SearchBar = () => {
 
     function handleButtonClick(e) {
         setMessage('Buscando...')
-        Axios.get(process.env.REACT_APP_API_URL + '/api/search?q=' + encodeURIComponent(terms))
+        Axios.get(process.env.REACT_APP_SEARCH_ENDPOINT_URL, {
+                params: {
+                    q: encodeURIComponent(terms)
+                }
+            })
             .then((result) => {
                 setItems(result.data);
                 setMessage('');
